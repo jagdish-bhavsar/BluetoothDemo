@@ -1,2 +1,2 @@
-include ':app', ':utilities'
+include ':app', ':bledata'
 rootProject.name='BluetoothDemo'

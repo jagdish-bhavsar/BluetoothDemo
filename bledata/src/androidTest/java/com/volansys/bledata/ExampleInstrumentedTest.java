@@ -1,4 +1,4 @@
-package com.volansys.utilities;
+package com.volansys.bledata;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.volansys.utilities", appContext.getPackageName());
+        assertEquals("com.volansys.bledata.test", appContext.getPackageName());
     }
 }

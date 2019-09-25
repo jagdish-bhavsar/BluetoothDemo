@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.volansys.bledata.MainApp;
 import com.volansys.bluetoothdemo.R;
 import com.volansys.bluetoothdemo.ui.login.LoginViewModel;
 import com.volansys.bluetoothdemo.ui.login.LoginViewModelFactory;
@@ -42,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -110,12 +113,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+
+                MainApp.Toast(LoginActivity.this);
+//                loadingProgressBar.setVisibility(View.VISIBLE);
+//                loginViewModel.login(usernameEditText.getText().toString(),
+//                        passwordEditText.getText().toString());
             }
         });
     }

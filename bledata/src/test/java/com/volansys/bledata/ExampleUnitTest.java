@@ -1,4 +1,4 @@
-package com.volansys.utilities;
+package com.volansys.bledata;
 
 import org.junit.Test;
 

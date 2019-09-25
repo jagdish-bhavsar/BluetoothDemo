@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+
+
+ext {
+    bintrayRepo = 'bledata'
+    bintrayName = 'bledata'
+
+    publishedGroupId = 'com.volansys'
+    libraryName = 'bledata'
+    artifact = 'bledata'
+
+    libraryDescription = ' HomeBridge Demo.'
+
+    siteUrl = 'https://github.com/jagdish-bhavsar/BluetoothDemo'
+    gitUrl = 'https://github.com/jagdish-bhavsar/BluetoothDemo.git'
+
+    libraryVersion = '1.0'
+
+    developerId = 'jagdish-bhavsar'
+    developerName = 'Jagdish Bhavsar'
+    developerEmail = 'jagdish.bhavsar@volansys.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+//Add these lines to publish library to bintray. This is the readymade scripts made by github user nuuneoi to make uploading to bintray easy.
+//Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
